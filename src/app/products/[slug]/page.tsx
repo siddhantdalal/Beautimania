@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { ChatIcon } from "@/components/icons";
+import { JsonLd } from "@/components/JsonLd";
 import { Price } from "@/components/product/Price";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductGrid } from "@/components/product/ProductGrid";
@@ -72,11 +73,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
 
   return (
     <div className="page-container py-10 lg:py-14">
-      <script
-        type="application/ld+json"
-        // Escape "<" so product text can never close the script tag.
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd(product)).replace(/</g, "\\u003c") }}
-      />
+      <JsonLd data={productJsonLd(product)} />
 
       <Breadcrumbs
         items={[

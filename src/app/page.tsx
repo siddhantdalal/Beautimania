@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -30,6 +31,26 @@ const ORDER_STEPS = [
   { title: "We confirm & dispatch", text: "We share shipping and payment details, then pack your order." },
 ];
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  legalName: site.company,
+  url: site.url,
+  logo: new URL("/brand/beautimania-logo-circle.jpg", site.url).href,
+  email: site.email,
+  telephone: site.phone.e164,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.region,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.country,
+  },
+  sameAs: Object.values(site.social).map((social) => social.url),
+};
+
 export default function HomePage() {
   const featured = getProductsBySlugs(FEATURED).map(toSummary);
   const retailCategories = categories.filter((category) => category.slug !== "diy-supplies");
@@ -40,6 +61,8 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={organizationJsonLd} />
+
       {/* Hero */}
       <section className="page-container grid items-center gap-10 pt-10 pb-16 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pt-16 lg:pb-24">
         <div>
