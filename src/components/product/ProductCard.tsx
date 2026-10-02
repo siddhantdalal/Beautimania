@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { SiteImage } from "@/components/ui/SiteImage";
 import type { ProductSummary } from "@/lib/products";
 import { AddToCartButton } from "./AddToCartButton";
 import { Price } from "./Price";
@@ -17,7 +17,7 @@ export function ProductCard({ product }: { product: ProductSummary }) {
         aria-hidden="true"
         className="relative block aspect-square overflow-hidden rounded-xl bg-white"
       >
-        <Image
+        <SiteImage
           src={product.image}
           alt=""
           fill

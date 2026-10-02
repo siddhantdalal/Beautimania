@@ -82,6 +82,21 @@ duplicate slugs, missing images and invalid prices.
 Old Wix URLs permanently redirect to their new pages (`next.config.ts`), including every
 `/product-page/...` link, so search rankings and shared links keep working.
 
+## Deployment
+
+**Test site (GitHub Pages):** every push to `dev` runs `.github/workflows/deploy-pages.yml`, which lints,
+tests and publishes a static export to `https://siddhantdalal.github.io/Beautimania/`.
+Setting `PAGES_BASE_PATH` switches the build to static-export mode (see `next.config.ts`): pages are
+served under the repo path, images are served as-is, and the old-URL redirects are not active
+(GitHub Pages can't run them). To try that build locally: `PAGES_BASE_PATH=/Beautimania npm run build`,
+which writes to `out/`.
+
+One-time setup in the repo settings: **Pages → Source: GitHub Actions**. GitHub Pages on a free plan
+requires the repository to be public.
+
+**Production:** for the real launch on `beautimania.com`, use a host that runs Next.js natively (for
+example Vercel) so image optimisation and the redirects work. That build needs no extra configuration.
+
 ## Before launch
 
 - [ ] Owner reviews product details: `docs/03-product-review-checklist.md`

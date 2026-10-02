@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SiteImage } from "@/components/ui/SiteImage";
 import { categories, concernLabels } from "@/data/categories";
 import { site } from "@/data/site";
 import { getAllProducts, getProductImage, getProductsBySlugs, toSummary } from "@/lib/products";
@@ -82,7 +82,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-blush">
-          <Image
+          <SiteImage
             src={getProductImage("cherry-blossom-cold-process-soap")}
             alt="Handmade cherry blossom cold-process soap bars on a wooden ledge"
             fill
@@ -113,7 +113,7 @@ export default function HomePage() {
             <li key={category.slug}>
               <Link href={`/collections/${category.slug}`} className="group block">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white">
-                  <Image
+                  <SiteImage
                     src={category.image}
                     alt=""
                     fill
@@ -146,7 +146,7 @@ export default function HomePage() {
       <section className="bg-blush">
         <div className="page-container grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] lg:order-2">
-            <Image
+            <SiteImage
               src={getProductImage("neem-tulsi-aloe-vera-cold-process-soap")}
               alt="A green-swirled neem, tulsi and aloe vera cold-process soap held in a hand"
               fill
@@ -209,7 +209,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="relative hidden aspect-[4/3] h-full lg:block">
-            <Image
+            <SiteImage
               src={getProductImage("goat-milk-soap-base-1kg")}
               alt=""
               fill

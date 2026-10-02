@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { MinusIcon, PlusIcon } from "@/components/icons";
 import { buttonClass } from "@/components/ui/ButtonLink";
+import { SiteImage } from "@/components/ui/SiteImage";
 import { MAX_QUANTITY } from "@/lib/cart";
 import { cartActions, useCartLines, useHasHydrated } from "@/lib/cart-store";
 import { formatINR, formatPaise, toPaise } from "@/lib/money";
@@ -66,7 +66,7 @@ export function CartView({ catalogue }: { catalogue: Record<string, ProductSumma
                 aria-hidden="true"
                 className="relative size-24 shrink-0 overflow-hidden rounded-xl bg-white"
               >
-                <Image src={product.image} alt="" fill sizes="96px" className="object-cover" />
+                <SiteImage src={product.image} alt="" fill sizes="96px" className="object-cover" />
               </Link>
               <div className="flex flex-1 flex-col gap-2">
                 <div className="flex justify-between gap-4">

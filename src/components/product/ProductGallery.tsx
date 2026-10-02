@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
+import { SiteImage } from "@/components/ui/SiteImage";
 
 export function ProductGallery({ images, name }: { images: string[]; name: string }) {
   const [active, setActive] = useState(0);
@@ -9,7 +9,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
   return (
     <div className="flex flex-col gap-4">
       <div className="relative aspect-square overflow-hidden rounded-2xl bg-white">
-        <Image
+        <SiteImage
           src={images[active]}
           alt={name}
           fill
@@ -30,7 +30,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
                 aria-pressed={index === active}
                 className="relative block aspect-square w-full overflow-hidden rounded-lg border-2 border-transparent bg-white aria-pressed:border-forest"
               >
-                <Image src={image} alt="" fill sizes="96px" className="object-cover" />
+                <SiteImage src={image} alt="" fill sizes="96px" className="object-cover" />
               </button>
             </li>
           ))}

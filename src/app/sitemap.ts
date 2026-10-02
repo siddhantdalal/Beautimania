@@ -3,6 +3,9 @@ import { categories } from "@/data/categories";
 import { site } from "@/data/site";
 import { getAllProducts } from "@/lib/products";
 
+// Required for the static (GitHub Pages) export; these files never change at runtime.
+export const dynamic = "force-static";
+
 const STATIC_PATHS = [
   "/",
   "/shop",
