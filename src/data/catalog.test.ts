@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { categories } from "./categories";
 import { products } from "./products";
+import { trustBadges } from "./site";
 
 /**
  * The catalogue is edited by hand, so guard the mistakes that would break pages:
@@ -67,6 +68,14 @@ describe("categories", () => {
         products.some((product) => product.category === category.slug),
         category.slug,
       ).toBe(true);
+    }
+  });
+});
+
+describe("trust badges", () => {
+  it("each has a logo that exists", () => {
+    for (const badge of trustBadges) {
+      expect(existsSync(publicFile(badge.image)), badge.image).toBe(true);
     }
   });
 });

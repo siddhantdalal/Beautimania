@@ -39,7 +39,16 @@ export const site = {
   },
 } as const;
 
+/** Trust badges shown on the homepage, with the logos from the original site. */
+export const trustBadges = [
+  { label: "Good Manufacturing Practice Certified", image: "/images/badges/gmp-certified.png" },
+  { label: "Sulphate & Paraben Free", image: "/images/badges/sulphate-paraben-free.png" },
+  { label: "Cruelty Free", image: "/images/badges/cruelty-free.png" },
+  { label: "Made in India", image: "/images/badges/made-in-india.png" },
+] as const;
+
 export const mainNav = [
+  { label: "Home", href: "/" },
   { label: "Shop all", href: "/shop" },
   { label: "Soaps", href: "/collections/soaps" },
   { label: "Face", href: "/collections/face" },

@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { categories, concernLabels } from "@/data/categories";
-import { site } from "@/data/site";
+import { site, trustBadges } from "@/data/site";
 import { getAllProducts, getProductImage, getProductsBySlugs, toSummary } from "@/lib/products";
 import type { Concern } from "@/lib/types";
 
@@ -17,13 +17,6 @@ const FEATURED = [
 ];
 
 const HOME_CONCERNS: Concern[] = ["acne", "tan", "pigmentation", "dryness", "oily-skin", "sensitive-skin"];
-
-const PROMISES = [
-  { title: "Herbal & handmade", text: "Made by hand with herbs, butters and plant oils." },
-  { title: "Free from sulphates & parabens", text: "Gentle formulas with clearly listed ingredients." },
-  { title: "Rooted in Indian rituals", text: "Neem, tulsi, turmeric, sandalwood and ubtan." },
-  { title: "Easy WhatsApp ordering", text: "Send your cart in one tap and we confirm the rest." },
-];
 
 const ORDER_STEPS = [
   { title: "Add to cart", text: "Pick your products and quantities." },
@@ -93,13 +86,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Promises */}
-      <section aria-label="Why Beautimania" className="border-y border-line bg-white/60">
-        <ul className="page-container grid gap-6 py-8 sm:grid-cols-2 lg:grid-cols-4">
-          {PROMISES.map((promise) => (
-            <li key={promise.title}>
-              <p className="font-display text-xl font-semibold text-forest-dark">{promise.title}</p>
-              <p className="mt-1 text-sm text-muted">{promise.text}</p>
+      {/* Trust badges */}
+      <section aria-label="Our standards" className="border-y border-line bg-white/60">
+        <ul className="page-container grid grid-cols-2 gap-x-6 gap-y-8 py-10 sm:grid-cols-4">
+          {trustBadges.map((badge) => (
+            <li key={badge.label} className="flex flex-col items-center text-center">
+              <SiteImage src={badge.image} alt="" width={256} height={246} className="h-20 w-auto" />
+              <p className="mt-3 max-w-[12rem] text-sm font-medium text-forest-dark">{badge.label}</p>
             </li>
           ))}
         </ul>
