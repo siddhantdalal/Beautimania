@@ -168,6 +168,8 @@ export function ShopCatalog({ products, showCategoryFilter = false }: ShopCatalo
         </label>
       </div>
 
+      {/* Keeps the heading outline h1 → h2 → product names (h3) for screen readers. */}
+      <h2 className="sr-only">Products</h2>
       <div className="flex items-center justify-between py-5 text-sm text-muted">
         <p aria-live="polite">
           {visible.length} {visible.length === 1 ? "product" : "products"}
