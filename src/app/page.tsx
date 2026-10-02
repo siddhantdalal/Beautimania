@@ -88,7 +88,7 @@ export default function HomePage() {
 
       {/* Trust badges */}
       <section aria-label="Our standards" className="border-y border-line bg-white/60">
-        <ul className="page-container grid grid-cols-2 gap-x-6 gap-y-8 py-10 sm:grid-cols-4">
+        <ul className="page-container grid grid-cols-2 gap-x-6 gap-y-8 py-10 sm:grid-cols-3 lg:grid-cols-6">
           {trustBadges.map((badge) => (
             <li key={badge.label} className="flex flex-col items-center text-center">
               <SiteImage src={badge.image} alt="" width={256} height={246} className="h-20 w-auto" />

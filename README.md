@@ -102,8 +102,8 @@ example Vercel) so image optimisation and the redirects work. That build needs n
 - [ ] Owner reviews product details: `docs/03-product-review-checklist.md`
 - [ ] Owner confirms the policy pages (shipping, returns, privacy, terms). They are drafted from the old
       store's stated policies.
-- [ ] Owner confirms the GMP certification shown on the homepage, and FDA licence / ISO details before
-      either is added
+- [ ] Owner confirms the GMP and ISO certifications shown on the homepage, and FDA licence details before
+      that is added
 - [ ] Point the `beautimania.com` domain to the new hosting
 
 ## Roadmap

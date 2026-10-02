@@ -39,10 +39,12 @@ export const site = {
   },
 } as const;
 
-/** Trust badges shown on the homepage, with the logos from the original site. */
+/** Trust badges shown on the homepage. Logos are from the original site, except Herbal & Handmade, drawn to match. */
 export const trustBadges = [
+  { label: "Herbal & Handmade", image: "/images/badges/herbal-handmade.svg" },
   { label: "Good Manufacturing Practice Certified", image: "/images/badges/gmp-certified.png" },
   { label: "Sulphate & Paraben Free", image: "/images/badges/sulphate-paraben-free.png" },
+  { label: "ISO Certified", image: "/images/badges/iso-certified.png" },
   { label: "Cruelty Free", image: "/images/badges/cruelty-free.png" },
   { label: "Made in India", image: "/images/badges/made-in-india.png" },
 ] as const;

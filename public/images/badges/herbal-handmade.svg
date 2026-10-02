@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3500 3361" role="img" aria-label="Herbal and handmade">
+  <!-- Same canvas, ring, disc and colours as the original badge artwork (measured from cruelty-free.png). -->
+  <path d="M2867.6 743.7A1455 1455 0 1 1 1753 224" fill="none" stroke="#5eb354" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="1753" cy="1679" r="1230" fill="#d7ebcd"/>
+
+  <!-- Mortar and pestle with a herb sprig -->
+  <g fill="#67b65a">
+    <path d="M1900 1640 2330 1030" stroke="#67b65a" stroke-width="150" stroke-linecap="round"/>
+    <path d="M1173 1750A580 580 0 0 0 2333 1750Z"/>
+    <rect x="1103" y="1640" width="1300" height="120" rx="60"/>
+    <rect x="1563" y="2290" width="380" height="110" rx="45"/>
+    <path d="M1560 1640Q1510 1340 1390 980" fill="none" stroke="#67b65a" stroke-width="45" stroke-linecap="round"/>
+    <path d="M1415 1080Q1270 980 1300 760Q1470 880 1415 1080Z"/>
+    <path d="M1485 1390Q1290 1440 1110 1250Q1330 1180 1485 1390Z"/>
+    <path d="M1520 1300Q1560 1090 1790 1040Q1740 1270 1520 1300Z"/>
+  </g>
+
+  <!-- Offset navy outlines, as on the original icons -->
+  <g fill="none" stroke="#223a4d" stroke-width="22" stroke-linejoin="round" transform="translate(-40 -30)">
+    <path d="M1173 1750A580 580 0 0 0 2333 1750"/>
+    <path d="M1415 1080Q1270 980 1300 760Q1470 880 1415 1080Z"/>
+    <path d="M1485 1390Q1290 1440 1110 1250Q1330 1180 1485 1390Z"/>
+  </g>
+</svg>
