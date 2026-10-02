@@ -4,7 +4,13 @@ import { useState, type FormEvent } from "react";
 import { ChatIcon } from "@/components/icons";
 import { buttonClass } from "@/components/ui/ButtonLink";
 import { cartActions } from "@/lib/cart-store";
-import { buildOrderMessage, whatsappUrl, type CustomerDetails, type OrderItem } from "@/lib/whatsapp";
+import {
+  buildOrderMessage,
+  openWhatsApp,
+  whatsappUrl,
+  type CustomerDetails,
+  type OrderItem,
+} from "@/lib/whatsapp";
 
 const inputClass =
   "mt-1 w-full rounded-lg border border-line bg-cream/40 px-3 py-2.5 text-sm text-ink placeholder:text-muted/60 focus:border-forest focus:bg-white";
@@ -30,15 +36,7 @@ export function CheckoutForm({ items }: { items: OrderItem[] }) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const url = whatsappUrl(buildOrderMessage(items, readCustomer(event.currentTarget)));
-    // Not passing "noopener" here: with it, window.open always returns null and we'd
-    // wrongly treat every open as blocked. Detach the opener manually instead.
-    const opened = window.open(url, "_blank");
-    if (opened) {
-      opened.opener = null;
-    } else {
-      // Pop-up blocked (common in in-app browsers): open WhatsApp in this tab instead.
-      window.location.href = url;
-    }
+    openWhatsApp(url);
     setSentUrl(url);
   }
 

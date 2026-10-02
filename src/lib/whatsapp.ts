@@ -5,6 +5,21 @@ export function whatsappUrl(message: string): string {
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
+/**
+ * Opens a WhatsApp link in a new tab, or in this tab when pop-ups are blocked
+ * (common in in-app browsers). Browser-only; call it from a click/submit handler.
+ */
+export function openWhatsApp(url: string): void {
+  // No "noopener" feature here: with it, window.open always returns null and every
+  // open would look blocked. Detach the opener manually instead.
+  const opened = window.open(url, "_blank");
+  if (opened) {
+    opened.opener = null;
+  } else {
+    window.location.href = url;
+  }
+}
+
 export interface OrderItem {
   name: string;
   size?: string;
@@ -56,4 +71,25 @@ export function buildOrderMessage(items: OrderItem[], customer: CustomerDetails)
 export function buildProductEnquiryMessage(productName: string, size?: string): string {
   const label = size ? `${productName} (${size})` : productName;
   return `Hello ${site.name}! I'm interested in ${label}. Could you share more details?`;
+}
+
+export interface WholesaleEnquiry {
+  name: string;
+  business?: string;
+  interest: string;
+  quantity?: string;
+  details?: string;
+}
+
+export function buildWholesaleEnquiryMessage(enquiry: WholesaleEnquiry): string {
+  const optional = (label: string, value?: string) => (value?.trim() ? [`${label}: ${value.trim()}`] : []);
+  return [
+    `Hello ${site.name}! I have a wholesale enquiry.`,
+    "",
+    `Name: ${enquiry.name.trim()}`,
+    ...optional("Business", enquiry.business),
+    `Interested in: ${enquiry.interest}`,
+    ...optional("Quantity", enquiry.quantity),
+    ...optional("Details", enquiry.details),
+  ].join("\n");
 }

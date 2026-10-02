@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildOrderMessage,
+  buildWholesaleEnquiryMessage,
   orderSubtotalPaise,
   whatsappUrl,
   type CustomerDetails,
@@ -53,5 +54,25 @@ describe("whatsappUrl", () => {
     const url = new URL(whatsappUrl("Hi & thanks\nLine 2"));
     expect(url.origin + url.pathname).toBe("https://wa.me/917718082547");
     expect(url.searchParams.get("text")).toBe("Hi & thanks\nLine 2");
+  });
+});
+
+describe("buildWholesaleEnquiryMessage", () => {
+  it("includes required fields and skips empty optional ones", () => {
+    const message = buildWholesaleEnquiryMessage({
+      name: "Ravi",
+      business: "  ",
+      interest: "White label / private label",
+      quantity: "500 soaps",
+    });
+    expect(message).toBe(
+      [
+        "Hello Beautimania! I have a wholesale enquiry.",
+        "",
+        "Name: Ravi",
+        "Interested in: White label / private label",
+        "Quantity: 500 soaps",
+      ].join("\n"),
+    );
   });
 });
