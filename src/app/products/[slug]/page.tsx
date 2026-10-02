@@ -8,6 +8,7 @@ import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { PurchasePanel } from "@/components/product/PurchasePanel";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { Disclosure } from "@/components/ui/Disclosure";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { attributeLabels, categoryNames, freeFromLabels } from "@/data/categories";
 import { site } from "@/data/site";
@@ -53,18 +54,9 @@ function productJsonLd(product: Product) {
 
 function DetailSection({ title, open, children }: { title: string; open?: boolean; children: ReactNode }) {
   return (
-    <details open={open} className="group border-b border-line py-5">
-      <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-ink [&::-webkit-details-marker]:hidden">
-        {title}
-        <span
-          aria-hidden="true"
-          className="text-xl leading-none text-muted transition-transform group-open:rotate-45"
-        >
-          +
-        </span>
-      </summary>
+    <Disclosure summary={title} open={open} className="border-b border-line py-5">
       <div className="mt-3 text-sm leading-relaxed text-muted">{children}</div>
-    </details>
+    </Disclosure>
   );
 }
 
