@@ -63,7 +63,7 @@ export default function HomePage() {
             src={getProductImage("cherry-blossom-cold-process-soap")}
             alt="Handmade cherry blossom cold-process soap bars on a wooden ledge"
             fill
-            priority
+            preload
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover"
           />

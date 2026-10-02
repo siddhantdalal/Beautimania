@@ -12,7 +12,7 @@ export function Header() {
       <div className="page-container flex h-16 items-center gap-4 lg:h-20 lg:gap-8">
         <MobileMenu />
         <Link href="/" className="shrink-0" aria-label="Beautimania home">
-          <Image src={wordmark} alt="Beautimania" priority className="h-7 w-auto lg:h-9" />
+          <Image src={wordmark} alt="Beautimania" loading="eager" className="h-7 w-auto lg:h-9" />
         </Link>
         <nav aria-label="Main" className="hidden flex-1 justify-center lg:flex">
           <ul className="flex items-center gap-7">
