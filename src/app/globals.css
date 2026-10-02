@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/*
+ * Brand tokens. Derived from the old site's palette (forest green + blush)
+ * but toned down for a calmer, more premium feel. One display serif + one sans.
+ */
+@theme {
+  --color-cream: #fbf8f3;
+  --color-blush: #f6e9e8;
+  --color-blush-deep: #ecd3d5;
+  --color-mint: #e4ede0;
+  --color-sage: #8fae8b;
+  --color-forest: #2e5339;
+  --color-forest-dark: #1f3a28;
+  --color-rose: #a8456a;
+  --color-ink: #1e2a22;
+  --color-muted: #5e6b62;
+  --color-line: #e4ded3;
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+}
+
+@utility page-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--color-forest-dark);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 2px;
+  }
+}

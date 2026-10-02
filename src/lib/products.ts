@@ -63,3 +63,13 @@ export function toSummary(product: Product): ProductSummary {
     concerns: product.concerns,
   };
 }
+
+/**
+ * An image of a known product, for editorial sections (hero, banners).
+ * Throws during the build if the product or image is missing, so it can't ship broken.
+ */
+export function getProductImage(slug: string, index = 0): string {
+  const image = getProduct(slug)?.images[index];
+  if (!image) throw new Error(`No image #${index} for product "${slug}"`);
+  return image;
+}
